@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Backplate)(type KiCad)(uri ${KIPRJMOD}/Backplate.pretty)(options "")(descr ""))
+)

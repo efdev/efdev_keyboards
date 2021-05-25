@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name keebio)(type Legacy)(uri ${KIPRJMOD}/Libs/keebio.lib)(options "")(descr ""))
-  (lib (name Keyboard)(type Legacy)(uri ${KIPRJMOD}/Libs/Keyboard.lib)(options "")(descr ""))
-)
