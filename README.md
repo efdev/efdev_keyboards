@@ -19,7 +19,7 @@ and the projects list with
       path: tools/uf2
       clone-depth: 1
 ```
-and rund 
+and run `west update
 
 Build firmware `west build -p -b <board> -- -DBOARD_ROOT=<path to cloned repo>/Firmware`
 
