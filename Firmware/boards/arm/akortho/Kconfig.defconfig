@@ -1,0 +1,27 @@
+config ZMK_KEYBOARD_NAME
+	default "Akortho"
+
+config BT_CTLR
+	default BT
+
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+
+config ZMK_BATTERY_VOLTAGE_DIVIDER
+	default y
+
+config USB_HID_BOOT_PROTOCOL
+    default y
+
+if USB
+
+config USB_NRFX
+	default y
+
+config USB_DEVICE_STACK
+	default y
+
+endif # USB

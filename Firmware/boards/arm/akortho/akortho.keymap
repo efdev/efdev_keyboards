@@ -1,0 +1,105 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define default 0
+#define l_layer 1
+#define u_layer 2
+#define gw1 3
+#define gw2 4
+
+#define AT1 N1
+#define AT2 N2
+#define AT3 N3
+#define AT4 N4
+#define AT5 N5
+
+#define HEAL Q
+#define INTERACT F
+#define INVENTORY I
+#define MAP M
+#define MOUNT T
+#define WP_SWAP TAB
+
+#define MOUNT_1 B
+#define MOUNT_2 Y
+#define U1 X
+#define U2 C
+#define U3 V
+#define ES E
+#define PS3 R
+#define PS4 G
+#define PS5 CAPS
+#define PS6 F6
+#define PS7 F7
+
+/ {
+
+	ZMK_MACRO(screenshot,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&kp LCTL>;
+    )
+
+	ZMK_MACRO(call_target,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&macro_press &kp LCTL &kp T>, <&macro_release &kp LCTL &kp T>;
+    )
+  
+	keymap {
+		compatible = "zmk,keymap";
+
+		default_layer {
+			bindings = <
+	&kp GRAV &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
+	&kp TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp BKSP
+	&kp ESC &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SCLN &kp QUOT
+	&kp LSFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RET
+	&kp RALT &kp LCTL &kp LGUI &kp LALT &kp SPC &mo l_layer &mo u_layer &kp SPC &kp LARW &kp DARW &kp UARW &kp RARW
+			>;
+
+		};
+		lower_layer {
+		bindings = <
+	&none &kp F13 &kp F14 &kp F15 &kp F16 &none &none &none &none &none &none &trans
+	&none &kp F9 &kp F10 &kp F11 &kp F12 &none &none &none &none &kp LPAR &kp RPAR &trans
+	&kp DEL &kp F5 &kp F6 &kp F7 &kp F8 &none &none &kp UNDERSCORE &kp PLUS &kp LBRC &kp RBRC &kp BSLH
+	&none &kp F1 &kp F2 &kp F3 &kp F4 &none &none &none &none &none &none &none
+	&none &none &none &none &trans &none &to gw1 &trans &bt BT_PRV &bt BT_CLR &out OUT_TOG &bt BT_NXT
+	>;
+
+		};
+	
+		upper_layer {
+		bindings = < 
+	&bootloader &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none &none &none &none &none &none &none &trans
+	&reset &none &none &none &none &none &none &none &none &none &none &trans
+	&none &none &none &none &none &none &none &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp PIPE
+	&none &none &none &none &none &none &none &kp HOME &kp PG_UP &kp PG_DN &kp END &none
+	&none &none &none &none &trans &none &none &trans &cp M_NEXT &kp VOLD &kp VOLU &cp M_PLAY
+	>;
+		};
+
+	guild_wars_1 {
+		bindings = < 
+	&kp MOUNT &none &none &kp HEAL &none &none &kp INVENTORY &kp MAP &screenshot &none &none &none
+	&kp AT1 &kp AT2 &kp W &kp AT3 &kp AT4 &kp AT5 &none &none &none &none &none &none
+	&none &kp A &kp S &kp D &kp MOUNT_1 &kp MOUNT_2 &none &none &none &none &none &none
+	&none &none &none &kp WP_SWAP &none &kp INTERACT &none &none &none &none &none &none
+	&none &call_target &none &none &kp SPC &mo gw2 &none &none &none &none &none &none
+	>;
+		};
+	
+	guild_wars_2 {
+		bindings = < 
+	&trans &none &none &trans &none &none &none &none &none &none &none &none
+	&kp U1 &kp U2 &trans &kp U3 &kp ES &kp PS3 &none &none &none &none &none &none
+	&kp PS4 &trans &trans &trans &kp PS5 &kp PS6 &none &none &none &none &none &none
+	&kp PS7 &none &none &none &none &none &none &none &none &none &none &none
+	&none &none &none &none &trans &none &to default &none &none &none &none &none
+	>;
+		};
+	};
+};
