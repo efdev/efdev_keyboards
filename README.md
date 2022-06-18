@@ -9,6 +9,9 @@ Basic setup see https://zmk.dev/docs/development/setup .
 Extend zmk west.yml remotes list with and run 
 
 ```
+- name: microsoft
+      url-base: https://github.com/microsoft
+
 - name: uf2
       remote: microsoft
       path: tools/uf2
